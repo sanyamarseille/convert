@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title>convert system</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    convert system<br><br>
+  </head>
+  <body>
+    <form action="convert.php" method="POST">
+      ===== 文字コードの指定 =====</br>
+      <select name="charcode">
+	<option value="SJIS">Shift-JIS</option>
+	<option value="UTF-8">UTF-8</option>
+	<option value="EUC-JP">EUC-JP</option>
+      </select></br>
+      ===== 変換方法の指定 =====</br>
+      <input type="radio" name="type" value="url_encode">URL encode<br>
+      <input type="radio" name="type" value="url_decode">URL decode<br>
+      <input type="radio" name="type" value="base64_encode">Base64 encode<br>
+      <input type="radio" name="type" value="base64_decode">Base64 decode<br>
+      <input type="radio" name="type" value="rot13">ROT13 convert<br>
+      ===== 変換する文字列を入力 =====</br>
+      <textarea name="string" cols="70" rows="10"></textarea><br><br>
+      <input type="submit" value="send"><br>
+    </form>
+  </body>
+</html>
