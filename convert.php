@@ -14,7 +14,8 @@
     }
     elseif($_POST["type"] == "url_decode"){
     $after = urldecode($_POST["string"]);
-    $result = htmlspecialchars($after,ENT_HTML401,$_POST["charcode"]);
+    $tmp = htmlspecialchars($after,ENT_HTML401,$_POST["charcode"]);
+    $result = str_replace("\\r\\n","<br>",$tmp);
     }
     elseif($_POST["type"] == "base64_encode"){
     $string = mb_convert_encoding($_POST["string"],$_POST["charcode"]);
@@ -22,7 +23,8 @@
     }
     elseif($_POST["type"] == "base64_decode"){
     $after = base64_decode($_POST["string"]);
-    $result = htmlspecialchars($after,ENT_HTML401,$_POST["charcode"]);
+    $tmp = htmlspecialchars($after,ENT_HTML401,$_POST["charcode"]);
+    $result = str_replace("\\r\\n","<br>",$tmp);
     }
     elseif($_POST["type"] == "rot13"){
     $string = mb_convert_encoding($_POST["string"],$_POST["charcode"]);
