@@ -14,20 +14,19 @@
     }
     elseif($_POST["type"] == "url_decode"){
     $after = urldecode($_POST["string"]);
-    $tmp = htmlspecialchars($after,ENT_HTML401,$_POST["charcode"]);
+    $tmp = htmlspecialchars($after,ENT_QUOTES,$_POST["charcode"]);
     $result = str_replace("\\r\\n","<br>",$tmp);
     }
     elseif($_POST["type"] == "base64_encode"){
-    $string = mb_convert_encoding($_POST["string"],$_POST["charcode"]);
     $result = base64_encode($string);
     }
     elseif($_POST["type"] == "base64_decode"){
     $after = base64_decode($_POST["string"]);
-    $tmp = htmlspecialchars($after,ENT_HTML401,$_POST["charcode"]);
+    $tmp = htmlspecialchars($after,ENT_QUOTES);
     $result = str_replace("\\r\\n","<br>",$tmp);
     }
     elseif($_POST["type"] == "rot13"){
-    $string = mb_convert_encoding($_POST["string"],$_POST["charcode"]);
+    $string = mb_convert_encoding($_POST["string"]);
     $result = str_rot13($string);
     }
     print($result);
